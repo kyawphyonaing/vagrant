@@ -21,13 +21,8 @@ service httpd restart
 cp /etc/my.cnf /etc/my.cnf.org
 cp my.cnf.txt /etc/my.cnf
 service mysqld restart
+chkconfig mysqld on
 cp clock.txt /etc/sysconfig/clock
-yum -y install ntpdate.x86_64
-chkconfig --add ntpdate
-chkconfig --level 3 ntpdate on
-cp step-tickers.txt /etc/ntp/step-tickers
-sudo /etc/init.d/ntpdate start
-##php 5.5 update
 #rpm -Uvh https://mirror.webtatic.com/yum/el6/latest.rpm
 #yum install php55w php55w-opcache
 #yum install yum-plugin-replace
